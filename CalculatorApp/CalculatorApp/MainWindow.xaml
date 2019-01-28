@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <WrapPanel>
+                <RichTextBox x:Name="rtb_display" HorizontalAlignment="Right" Margin="10,10,10,10"></RichTextBox>
+            </WrapPanel>
+        </StackPanel>
     </Grid>
 </Window>

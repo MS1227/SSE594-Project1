@@ -23,6 +23,9 @@ namespace CalculatorApp
         public MainWindow()
         {
             InitializeComponent();
+
+            rtb_display.AppendText("0");
         }
+
     }
 }
