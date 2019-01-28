@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace Parser.Library.Test
 {
+    [TestFixture]
     public class Tests
     {
         [Test]
