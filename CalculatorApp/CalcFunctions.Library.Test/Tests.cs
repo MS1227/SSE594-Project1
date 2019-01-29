@@ -17,7 +17,7 @@ namespace CalcFunctions.Library.Test
             int a = 1, b = 2;
 
             //Act
-            int result = CalcFunctions.Add(a, b);
+            int result = (int) CalcFunctions.Add(a, b);
             //Assert
             Assert.AreEqual(result, a + b);
         }
@@ -27,7 +27,7 @@ namespace CalcFunctions.Library.Test
 
             int a = 1, b = 2;
 
-            int result = CalcFunctions.Subtract(b, a);
+            int result = (int)CalcFunctions.Subtract(b, a);
 
             Assert.AreEqual(result, b - a);
         }
@@ -36,16 +36,16 @@ namespace CalcFunctions.Library.Test
         {
             int a = 2, b = 3;
 
-            int result = CalcFunctions.Multiply(a, b);
+            int result = (int)CalcFunctions.Multiply(a, b);
 
             Assert.AreEqual(result, a * b);
         }
         [Test]
         public void CalcFunctions_Divide_Two_Int_Numbers()
         {
-            int a = 4, b = 2;
+            double a = 5, b = 2;
 
-            int result = CalcFunctions.Divide(a, b);
+            double result = (double) CalcFunctions.Divide(a, b);
 
             Assert.AreEqual(result, a / b); 
         }
@@ -54,7 +54,7 @@ namespace CalcFunctions.Library.Test
         {
             double a = 2.393, b = 4.9393;
 
-            double result = CalcFunctions.Divide(a, b);
+            double result = (double) CalcFunctions.Divide(a, b);
 
             Assert.AreEqual(result, a / b);
         }
@@ -63,7 +63,7 @@ namespace CalcFunctions.Library.Test
         {
             double a = 2.393, b = 4.9393;
 
-            double result = CalcFunctions.Add(a, b);
+            double result = (double) CalcFunctions.Add(a, b);
 
             Assert.AreEqual(result, a + b);
         }
@@ -72,7 +72,7 @@ namespace CalcFunctions.Library.Test
         {
             double a = 2.393, b = 4.9393;
 
-            double result = CalcFunctions.Subtract(a, b);
+            double result = (double)CalcFunctions.Subtract(a, b);
 
             Assert.AreEqual(result, a - b);
         }
@@ -81,7 +81,7 @@ namespace CalcFunctions.Library.Test
         {
             double a = 2.393, b = 4.9393;
 
-            double result = CalcFunctions.Multiply(a, b);
+            double result = (double)CalcFunctions.Multiply(a, b);
 
             Assert.AreEqual(result, a * b);
         }
