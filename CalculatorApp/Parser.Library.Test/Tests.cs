@@ -69,7 +69,7 @@ namespace Parser.Library.Test
         public void Parsed_Addition_Int_Double_String()
         {
             double result = Convert.ToDouble(Parser.parseString("2.2 + 2"));
-            Assert.AreEqual(result, 4.4);
+            Assert.AreEqual(result, 4.2);
         }
     }
 }
