@@ -40,15 +40,7 @@ namespace CalcFunctions.Library.Test
 
             Assert.AreEqual(result, a * b);
         }
-        [Test]
-        public void CalcFunctions_Divide_Two_Int_Numbers()
-        {
-            double a = 5, b = 2;
-
-            double result = (double) CalcFunctions.Divide(a, b);
-
-            Assert.AreEqual(result, a / b); 
-        }
+        
         [Test]
         public void CalcFunctions_Divide_Two_Double_Numbers()
         {
