@@ -9,28 +9,32 @@ namespace Parser.Library
 {
     public class Parser
     {
-       public static int Operator(string inputOperator, int a , int b)
+        public static object Operator(string inputOperator, object a, object b)
         {
-            int result = 0;
-            switch(inputOperator)
+            int iResult = 0;
+            double dResult = 0;
+            if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
             {
-                case "+":
-                    result = CalcFunctions.Library.CalcFunctions.Add(a, b);
-                    break;
-                case "-":
-                    result = CalcFunctions.Library.CalcFunctions.Subtract(a, b);
-                    break;
-                case "*":
-                    result = CalcFunctions.Library.CalcFunctions.Multiply(a, b);
-                    break;
-                case "/":
-                    result = CalcFunctions.Library.CalcFunctions.Divide(a, b);
-                    break;
-                default:
-                    break;
+                switch (inputOperator)
+                {
+                    case "+":
+                        dResult = CalcFunctions.Library.CalcFunctions.Add(a, b);
+                        break;
+                    case "-":
+                        dResult = CalcFunctions.Library.CalcFunctions.Subtract(a, b);
+                        break;
+                    case "*":
+                        dResult = CalcFunctions.Library.CalcFunctions.Multiply(a, b);
+                        break;
+                    case "/":
+                        dResult = CalcFunctions.Library.CalcFunctions.Divide(a, b);
+                        break;
+                    default:
+                        break;
 
+                }
+                return dResult;
             }
-            return result;
         }
         public static double Operator(string inputOperator, double a, double b)
         {
