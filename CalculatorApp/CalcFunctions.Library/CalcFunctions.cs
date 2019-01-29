@@ -60,6 +60,7 @@ namespace CalcFunctions.Library
         public static object Divide(object a, object b)
         {
             double dResult = 0;
+            
             dResult = (double)a / (double)b;
 
             return dResult;
