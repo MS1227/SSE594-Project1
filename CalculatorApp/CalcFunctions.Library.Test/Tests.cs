@@ -77,5 +77,41 @@ namespace CalcFunctions.Library.Test
 
             Assert.AreEqual(result, a * b);
         }
+        [Test]
+        public void CalcFunctions_Add_Int_And_Double_Numbers()
+        {
+            double a = 32.32232;
+            int b = 5;
+
+            double result = (double)CalcFunctions.Add(a, b);
+            Assert.AreEqual(result, a + b);
+        }
+        [Test]
+        public void CalcFunctions_Subtract_Int_And_Double_Numbers()
+        {
+            double a = 12.392;
+            int b = 5;
+
+            double result = (double)CalcFunctions.Subtract(a, b);
+            Assert.AreEqual(result, a - b);
+        }
+        [Test]
+        public void CalcFunctions_Multiply_Int_And_Double_Numbers()
+        {
+            double a = 2.3939;
+            int b = 9;
+
+            double result = (double)CalcFunctions.Multiply(a, b);
+            Assert.AreEqual(result, a * b);
+        }
+        [Test]
+        public void CalcFunctions_Divide_Int_Double_Numbers()
+        {
+            double a = 9.32314;
+            int b = 3;
+
+            double result = (double)CalcFunctions.Divide(a, b);
+            Assert.AreEqual(result, a / b);
+        }
     }
 }
