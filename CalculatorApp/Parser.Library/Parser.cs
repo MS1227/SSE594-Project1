@@ -9,7 +9,97 @@ namespace Parser.Library
 {
     public class Parser
     {
-        public static object Operator(string inputOperator, object a, object b)
+        public static object parseString(string input)
+        {
+            string[] operands = input.Split(' ');
+            string currOperater = string.Empty;
+
+            bool containsDouble = false, isFirstArg = true;
+            bool iArgAUsed = false, iArgBUsed = false, dArgAUsed = false, dArgBUsed = false;
+            int iArgA = 0, iArgB = 0, iResult = 0;
+            double dArgA = 0, dArgB = 0, dResult = 0;
+
+            foreach (string x in operands)
+            {
+                //look for decimal in double values
+                if (x.Contains("."))
+                {
+                    containsDouble = true;
+                    if (isFirstArg)
+                    {
+                        Double.TryParse(x, out dArgA);
+                        isFirstArg = false;
+                        dArgAUsed = true;
+                    }
+                    else
+                    {
+                        Double.TryParse(x, out dArgB);
+                        dArgBUsed = true;
+                    }
+                }
+                //look for integers
+                else if (x.Any(char.IsDigit))
+                {
+
+                    if (isFirstArg)
+                    {
+                        Int32.TryParse(x, out iArgA);
+                        isFirstArg = false;
+                        iArgAUsed = true;
+                    }
+                    else
+                    {
+                        Int32.TryParse(x, out iArgB);
+                        iArgBUsed = true;
+                    }
+
+                }
+                else
+                {
+                    currOperater = x;
+                }
+
+                if (iArgAUsed && iArgBUsed)
+                {
+                    iResult = (int) Operate(currOperater, iArgA, iArgB);
+                    iArgAUsed = false;
+                    iArgBUsed = false;
+                    
+                    
+                }
+                else if (iArgAUsed && dArgBUsed)
+                {
+                    dResult = (double) Operate(currOperater, iArgA, dArgB);
+                    iArgAUsed = false;
+                    dArgBUsed = false;
+                    
+                }
+                else if(dArgAUsed && iArgBUsed)
+                {
+                    dResult = (double) Operate(currOperater, dArgA, iArgB);
+                    dArgAUsed = false;
+                    iArgBUsed = false;
+                    
+                }
+                else if(dArgAUsed && dArgBUsed)
+                {
+                    dResult = (double) Operate(currOperater, dArgA, dArgB);
+                    dArgAUsed = false;
+                    dArgBUsed = false;
+                }
+                
+            }
+            if(containsDouble)
+            {
+                return dResult;
+            }
+            else
+            {
+                return iResult;
+            }
+
+        }
+        public static object Operate(string inputOperator, object a, object b)
         {
             int iResult = 0;
             double dResult = 0;
@@ -28,7 +118,9 @@ namespace Parser.Library
                         dResult = (double) CalcFunctions.Library.CalcFunctions.Multiply(a, b);
                         break;
                     case "/":
-                        dResult = (double) CalcFunctions.Library.CalcFunctions.Divide(a, b);
+                        double argA = Convert.ToDouble(a);
+                        double argB = Convert.ToDouble(b);
+                        dResult = (double) CalcFunctions.Library.CalcFunctions.Divide(argA, argB);
                         break;
                     default:
                         break;

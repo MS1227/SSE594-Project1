@@ -16,8 +16,8 @@ namespace Parser.Library.Test
             int a = 3, b = 4;
             double c = 3.9292, d = 19.3393;
 
-            int result = (int) Parser.Operator("+",a,b);
-            double dResult = (double) Parser.Operator("+", c, d);
+            int result = (int) Parser.Operate("+",a,b);
+            double dResult = (double) Parser.Operate("+", c, d);
 
             Assert.AreEqual(result, a + b);
             Assert.AreEqual(dResult, c + d);
@@ -28,8 +28,8 @@ namespace Parser.Library.Test
             int a = 10, b = 5;
             double c = 13.2930, d = 9.892;
 
-            int result = (int) Parser.Operator("-", a, b);
-            double dResult = (double) Parser.Operator("-", c, d);
+            int result = (int) Parser.Operate("-", a, b);
+            double dResult = (double) Parser.Operate("-", c, d);
 
             Assert.AreEqual(result, a - b);
             Assert.AreEqual(dResult, c - d);
@@ -40,8 +40,8 @@ namespace Parser.Library.Test
             int a = 10, b = 12;
             double c = 13.3222, d = 19.3333;
 
-            int result = (int) Parser.Operator("*", a, b);
-            double dResult = (double) Parser.Operator("*", c, d);
+            int result = (int) Parser.Operate("*", a, b);
+            double dResult = (double) Parser.Operate("*", c, d);
         
             Assert.AreEqual(result, a * b);
             Assert.AreEqual(dResult, c * d);
@@ -51,13 +51,25 @@ namespace Parser.Library.Test
         {
             int a = 14, b = 7;
             double c = 13.3332, d = 3.2390;
-            double e = 14, f = 7;
+            
 
-            double result = (double) Parser.Operator("/", a , b);
-            double dResult = (double) Parser.Operator("/", c, d);
+            double result = (double) Parser.Operate("/", a , b);
+            double dResult = (double) Parser.Operate("/", c, d);
 
-            Assert.AreEqual(result, e / f);
+            Assert.AreEqual(result, a / b);
             Assert.AreEqual(dResult, c / d);
+        }
+        [Test]
+        public void Parses_Addition_Int_String()
+        {
+            int result = (int) Parser.parseString("2 + 2");
+            Assert.AreEqual(result, 4);
+        }
+        [Test]
+        public void Parsed_Addition_Int_Double_String()
+        {
+            double result = Convert.ToDouble(Parser.parseString("2.2 + 2"));
+            Assert.AreEqual(result, 4.4);
         }
     }
 }
