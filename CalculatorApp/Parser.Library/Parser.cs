@@ -13,21 +13,22 @@ namespace Parser.Library
         {
             int iResult = 0;
             double dResult = 0;
-            if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
+            if (a.GetType() == typeof(double) || b.GetType() == typeof(double)
+                || inputOperator == "/")
             {
                 switch (inputOperator)
                 {
                     case "+":
-                        dResult = CalcFunctions.Library.CalcFunctions.Add(a, b);
+                        dResult = (double) CalcFunctions.Library.CalcFunctions.Add(a, b);
                         break;
                     case "-":
-                        dResult = CalcFunctions.Library.CalcFunctions.Subtract(a, b);
+                        dResult = (double) CalcFunctions.Library.CalcFunctions.Subtract(a, b);
                         break;
                     case "*":
-                        dResult = CalcFunctions.Library.CalcFunctions.Multiply(a, b);
+                        dResult = (double) CalcFunctions.Library.CalcFunctions.Multiply(a, b);
                         break;
                     case "/":
-                        dResult = CalcFunctions.Library.CalcFunctions.Divide(a, b);
+                        dResult = (double) CalcFunctions.Library.CalcFunctions.Divide(a, b);
                         break;
                     default:
                         break;
@@ -35,29 +36,27 @@ namespace Parser.Library
                 }
                 return dResult;
             }
-        }
-        public static double Operator(string inputOperator, double a, double b)
-        {
-            double result = 0;
-            switch (inputOperator)
+            else
             {
-                case "+":
-                    result = CalcFunctions.Library.CalcFunctions.Add(a, b);
-                    break;
-                case "-":
-                    result = CalcFunctions.Library.CalcFunctions.Subtract(a, b);
-                    break;
-                case "*":
-                    result = CalcFunctions.Library.CalcFunctions.Multiply(a, b);
-                    break;
-                case "/":
-                    result = CalcFunctions.Library.CalcFunctions.Divide(a, b);
-                    break;
-                default:
-                    break;
+                switch (inputOperator)
+                {
+                    case "+":
+                        iResult = (int)CalcFunctions.Library.CalcFunctions.Add(a, b);
+                        break;
+                    case "-":
+                        iResult = (int)CalcFunctions.Library.CalcFunctions.Subtract(a, b);
+                        break;
+                    case "*":
+                        iResult = (int)CalcFunctions.Library.CalcFunctions.Multiply(a, b);
+                        break;
+                    default:
+                        break;
+
+                }
+                return iResult;
 
             }
-            return result;
         }
+        
     }
 }
