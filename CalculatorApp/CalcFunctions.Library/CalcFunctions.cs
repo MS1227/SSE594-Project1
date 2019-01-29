@@ -15,7 +15,7 @@ namespace CalcFunctions.Library
             int iResult = 0;
             if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
             {
-                dResult = (double)a + (double)b;
+                dResult = Convert.ToDouble(a) + Convert.ToDouble(b);
 
                 return dResult;
             }
@@ -32,7 +32,7 @@ namespace CalcFunctions.Library
             int iResult = 0;
             if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
             {
-                dResult = (double)a - (double)b;
+                dResult = Convert.ToDouble(a) - Convert.ToDouble(b);
                 return dResult;
             }
             else
@@ -47,7 +47,7 @@ namespace CalcFunctions.Library
             int iResult = 0;
             if(a.GetType() == typeof(double) || b.GetType() == typeof(double))
             {
-                dResult = (double)a * (double)b;
+                dResult = Convert.ToDouble(a) * Convert.ToDouble(b);
                 return dResult;
             }
             else
@@ -61,7 +61,7 @@ namespace CalcFunctions.Library
         {
             double dResult = 0;
             
-            dResult = (double)a / (double)b;
+            dResult = Convert.ToDouble(a) / Convert.ToDouble(b);
 
             return dResult;
         }
