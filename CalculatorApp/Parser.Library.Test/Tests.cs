@@ -71,5 +71,41 @@ namespace Parser.Library.Test
             double result = Convert.ToDouble(Parser.parseString("2.2 + 2"));
             Assert.AreEqual(result, 4.2);
         }
+        [Test]
+        public void Parsed_Subtraction_Int_String()
+        {
+            int result = (int)Parser.parseString("5 - 2");
+            Assert.AreEqual(result, 5 - 2);
+        }
+        [Test]
+        public void Parsed_Subtraction_Mixed_Mode_String()
+        {
+            double result = Convert.ToDouble(Parser.parseString("5.780 - 3"));
+            Assert.AreEqual(result, 5.780 - 3);
+        }
+        [Test]
+        public void Parse_Multiplication_Int_String()
+        {
+            int result = (int)Parser.parseString("10 * 20");
+            Assert.AreEqual(result, 10 * 20);
+        }
+        [Test]
+        public void Parse_Multiplication_Mixed_Mode_String()
+        {
+            double result = Convert.ToDouble(Parser.parseString("10.393 * 20"));
+            Assert.AreEqual(result, 10.393 * 20);
+        }
+        [Test]
+        public void Parse_Division_Int_String()
+        {
+            double result = Convert.ToDouble(Parser.parseString("10 / 7"));
+            Assert.AreEqual(result, (double)10 / (double)7);
+        }
+        [Test]
+        public void Parse_Division_Mixed_Mode_String()
+        {
+            double result = Convert.ToDouble(Parser.parseString("10.35 / 2"));
+            Assert.AreEqual(result, (double)10.35 / (double)2);
+        }
     }
 }

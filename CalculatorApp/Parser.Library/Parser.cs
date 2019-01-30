@@ -61,9 +61,17 @@ namespace Parser.Library
 
                 if (iArgAUsed && iArgBUsed)
                 {
-                    iResult = (int) Operate(currOperater, iArgA, iArgB);
-                    iArgAUsed = false;
-                    iArgBUsed = false;
+                    if (currOperater == "/")
+                    {
+                        containsDouble = true;
+                        dResult = Convert.ToDouble(Operate(currOperater, iArgA, iArgB));
+                    }
+                    else
+                    {
+                        iResult = (int)Operate(currOperater, iArgA, iArgB);
+                    }
+                        iArgAUsed = false;
+                        iArgBUsed = false;
                     
                     
                 }
