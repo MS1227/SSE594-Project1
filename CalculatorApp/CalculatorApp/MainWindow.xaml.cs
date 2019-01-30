@@ -24,8 +24,99 @@ namespace CalculatorApp
         {
             InitializeComponent();
 
-            rtb_display.AppendText("0");
+            
+        
         }
 
+        private void Btn_ce_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_plusMinus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_plus_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Btn_1_Click(object sender, RoutedEventArgs e)
+        {
+
+            tb_display.Text = "1";
+        }
+
+        private void Btn_2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_minus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_6_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_multiply_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_7_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_8_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_9_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_divide_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_0_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_equals_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_c_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,11 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="290" Width="300">
+    <Grid Background="SlateGray">
         <StackPanel>
+            <WrapPanel Margin="5,5,5,5">
+                <Border BorderThickness="1" BorderBrush="#FF56B0FF">
+                    <TextBlock x:Name = "tb_display" TextAlignment = "Right"  Width="275"
+                           Height="35" FontSize="25" 
+                           Text = "0" VerticalAlignment = "Center"  Foreground="Black" Background="AliceBlue" />
+                </Border>
+            </WrapPanel>
             <WrapPanel>
-                <RichTextBox x:Name="rtb_display" HorizontalAlignment="Right" Margin="10,10,10,10"></RichTextBox>
+                <Grid Margin="5,0,0,5" Width="275"  >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btn_c" Click="Btn_c_Click" FontSize="20">C</Button>
+                    <Button Grid.Column="1" Click="Btn_ce_Click" x:Name="btn_ce" FontSize="20">CE</Button>
+                    <Button Grid.Column="2" Click="Btn_plusMinus_Click" x:Name="btn_plusMinus" FontSize="20">+/-</Button>
+                    <Button Grid.Column="3" Click="Btn_plus_Click" x:Name="btn_plus"  FontSize="20">+</Button>
+                    <Button Grid.Row="1" Click="Btn_1_Click" x:Name="btn_1" FontSize="20">1</Button>
+                    <Button Grid.Row="1" Click="Btn_2_Click" Grid.Column="1" x:Name="btn_2" FontSize="20">2</Button>
+                    <Button Grid.Row="1" Click="Btn_3_Click" Grid.Column="2" x:Name="btn_3" FontSize="20">3</Button>
+                    <Button Grid.Row="1" Click="Btn_minus_Click" Grid.Column="3" x:Name="btn_minus" FontSize="20">-</Button>
+                    <Button Grid.Row="2" Grid.Column="0" Click="Btn_4_Click" x:Name="btn_4" FontSize="20">4</Button>
+                    <Button Grid.Row="2" Grid.Column="1" Click="Btn_5_Click" x:Name="btn_5" FontSize="20">5</Button>
+                    <Button Grid.Row="2" Grid.Column="2" Click="Btn_6_Click" x:Name="btn_6" FontSize="20">6</Button>
+                    <Button Grid.Row="2" Grid.Column="3" Click="Btn_multiply_Click" x:Name="btn_multiply" FontSize="20">*</Button>
+                    <Button Grid.Row="3" Grid.Column="0" Click="Btn_7_Click" x:Name="btn_7" FontSize="20">7</Button>
+                    <Button Grid.Row="3" Grid.Column="1" Click="Btn_8_Click" x:Name="btn_8" FontSize="20">8</Button>
+                    <Button Grid.Row="3" Grid.Column="2" Click="Btn_9_Click" x:Name="btn_9" FontSize="20">9</Button>
+                    <Button Grid.Row="3" Grid.Column="3" Click="Btn_divide_Click" x:Name="btn_divide" FontSize="20">/</Button>
+                    <Button Grid.Row="4" Grid.ColumnSpan="3" Click ="Btn_0_Click" x:Name="btn_0" FontSize="20">0</Button>
+                    <Button Grid.Row="4" Grid.Column="4" Click="Btn_equals_Click" x:Name="btn_equals" FontSize="20">=</Button>
+
+
+
+
+
+
+
+
+
+
+                </Grid>
             </WrapPanel>
         </StackPanel>
     </Grid>
