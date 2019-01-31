@@ -20,43 +20,158 @@ namespace CalculatorApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string currInput = string.Empty;
+        private string argA = string.Empty, argB = string.Empty;
+        bool argAUsed = false, operatorSelected = false;
+
         public MainWindow()
         {
             InitializeComponent();
-
-            
-        
         }
 
         private void Btn_ce_Click(object sender, RoutedEventArgs e)
         {
+            if(!argAUsed)
+            {
+                argA = "0";
+                tb_display.Text = argA;
+            }
+            else
+            {
+                argB = "0";
+                tb_display.Text = argB;  
+            }
 
         }
 
         private void Btn_plusMinus_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if(argA.Contains("-"))
+                {
+                    argA = argA.Substring(1);
+                }
+                else if(argA != "0")
+                {
+                    argA = "-" + argA;
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB.Contains("-"))
+                {
+                    argB = argB.Substring(1);
+                }
+                else if(argB != "0" )
+                {
+                    argB = "-" + argB;
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_plus_Click(object sender, RoutedEventArgs e)
         {
+            if(operatorSelected)
+            {
+                currInput += argB;
+                Btn_equals_Click(sender, e);
+            }
+            else if(!argAUsed)
+            {
+                currInput = argA + " + ";
+                argAUsed = true;
+                operatorSelected = true;
+            }
             
+               
         }
 
         private void Btn_1_Click(object sender, RoutedEventArgs e)
         {
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "1";
+                }
+                else
+                {
+                    argA += "1";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "1";
+                }
+                else
+                {
+                    argB += "1";
+                }
+                tb_display.Text = argB;
+            }
 
-            tb_display.Text = "1";
         }
 
         private void Btn_2_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "2";
+                }
+                else
+                {
+                    argA += "2";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "2";
+                }
+                else
+                {
+                    argB += "2";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_3_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "3";
+                }
+                else
+                {
+                    argA += "3";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "3";
+                }
+                else
+                {
+                    argB += "3";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_minus_Click(object sender, RoutedEventArgs e)
@@ -66,17 +181,86 @@ namespace CalculatorApp
 
         private void Btn_4_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "4";
+                }
+                else
+                {
+                    argA += "4";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "4";
+                }
+                else
+                {
+                    argB += "4";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_5_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "5";
+                }
+                else
+                {
+                    argA += "5";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "5";
+                }
+                else
+                {
+                    argB += "5";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_6_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "6";
+                }
+                else
+                {
+                    argA += "6";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "6";
+                }
+                else
+                {
+                    argB += "6";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_multiply_Click(object sender, RoutedEventArgs e)
@@ -86,17 +270,87 @@ namespace CalculatorApp
 
         private void Btn_7_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "7";
+                }
+                else
+                {
+                    argA += "7";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "7";
+                }
+                else
+                {
+                    argB += "7";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_8_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "8";
+                }
+                else
+                {
+                    argA += "8";
+                }
+                
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "8";
+                }
+                else
+                {
+                    argB += "8";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_9_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if (argA == "0")
+                {
+                    argA = "9";
+                }
+                else
+                {
+                    argA += "9";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (argB == "0")
+                {
+                    argB = "9";
+                }
+                else
+                {
+                    argB += "9";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_divide_Click(object sender, RoutedEventArgs e)
@@ -106,17 +360,37 @@ namespace CalculatorApp
 
         private void Btn_0_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                if(argA != "0")
+                {
+                    argA += "0";
+                }
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if(argB != "0")
+                {
+                    argB += "0";
+                }
+                tb_display.Text = argB;
+            }
         }
 
         private void Btn_equals_Click(object sender, RoutedEventArgs e)
         {
-
+            tb_display.Text = currInput;
         }
 
         private void Btn_c_Click(object sender, RoutedEventArgs e)
         {
-
+            currInput = "";
+            argA = "0";
+            argB = "0";
+            argAUsed = false;
+            operatorSelected = false;
+            tb_display.Text = argA;
         }
     }
 }
