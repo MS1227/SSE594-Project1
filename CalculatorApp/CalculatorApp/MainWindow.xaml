@@ -46,7 +46,8 @@
                     <Button Grid.Row="3" Grid.Column="1" Click="Btn_8_Click" x:Name="btn_8" FontSize="20">8</Button>
                     <Button Grid.Row="3" Grid.Column="2" Click="Btn_9_Click" x:Name="btn_9" FontSize="20">9</Button>
                     <Button Grid.Row="3" Grid.Column="3" Click="Btn_divide_Click" x:Name="btn_divide" FontSize="20">/</Button>
-                    <Button Grid.Row="4" Grid.ColumnSpan="3" Click ="Btn_0_Click" x:Name="btn_0" FontSize="20">0</Button>
+                    <Button Grid.Row="4" Grid.ColumnSpan="2" Click ="Btn_0_Click" x:Name="btn_0" FontSize="20">0</Button>
+                    <Button Grid.Row="4" Grid.Column="2" Click="Button_dec_Click" x:Name="btn_dec" FontSize="20">.</Button>
                     <Button Grid.Row="4" Grid.Column="4" Click="Btn_equals_Click" x:Name="btn_equals" FontSize="20">=</Button>
 
 

@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parser.Library\Parser.Library.csproj">
+      <Project>{5c89e241-6c87-4ac4-9e88-fdf01cee08ee}</Project>
+      <Name>Parser.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

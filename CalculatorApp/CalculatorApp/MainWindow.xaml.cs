@@ -22,7 +22,8 @@ namespace CalculatorApp
     {
         private string currInput = string.Empty;
         private string argA = string.Empty, argB = string.Empty;
-        bool argAUsed = false, operatorSelected = false;
+        bool argAUsed = false, allowANeg = false, operatorSelected = false;
+        private int opsCount = 0;
 
         public MainWindow()
         {
@@ -31,7 +32,7 @@ namespace CalculatorApp
 
         private void Btn_ce_Click(object sender, RoutedEventArgs e)
         {
-            if(!argAUsed)
+            if (!argAUsed)
             {
                 argA = "0";
                 tb_display.Text = argA;
@@ -39,23 +40,24 @@ namespace CalculatorApp
             else
             {
                 argB = "0";
-                tb_display.Text = argB;  
+                tb_display.Text = argB;
             }
 
         }
 
         private void Btn_plusMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (!argAUsed)
+            if (!argAUsed || allowANeg)
             {
-                if(argA.Contains("-"))
+                if (argA.Contains("-"))
                 {
                     argA = argA.Substring(1);
                 }
-                else if(argA != "0")
+                else if (argA != "0")
                 {
                     argA = "-" + argA;
                 }
+                allowANeg = false;
                 tb_display.Text = argA;
             }
             else
@@ -64,7 +66,7 @@ namespace CalculatorApp
                 {
                     argB = argB.Substring(1);
                 }
-                else if(argB != "0" )
+                else if (argB != "0")
                 {
                     argB = "-" + argB;
                 }
@@ -74,7 +76,12 @@ namespace CalculatorApp
 
         private void Btn_plus_Click(object sender, RoutedEventArgs e)
         {
-            if(operatorSelected)
+            if(opsCount > 0)
+            {
+                currInput = argA + " + " + argB;
+                Btn_equals_Click(sender, e);
+            }
+            else if (operatorSelected)
             {
                 currInput += argB;
                 Btn_equals_Click(sender, e);
@@ -378,9 +385,34 @@ namespace CalculatorApp
             }
         }
 
+        private void Button_dec_Click(object sender, RoutedEventArgs e)
+        {
+            if (!argAUsed)
+            {
+                if(!argA.Contains("."))
+                {
+                    argA += ".";
+                } 
+                tb_display.Text = argA;
+            }
+            else
+            {
+                if (!argB.Contains("."))
+                {
+                    argB += ".";
+                }
+                tb_display.Text = argB;
+            }
+        }
+
         private void Btn_equals_Click(object sender, RoutedEventArgs e)
         {
-            tb_display.Text = currInput;
+            object result = Parser.Library.Parser.parseString(currInput);
+            argA = result.ToString();
+            tb_display.Text = argA;
+            argB = "";
+            allowANeg = true;
+            opsCount++;
         }
 
         private void Btn_c_Click(object sender, RoutedEventArgs e)
@@ -388,7 +420,9 @@ namespace CalculatorApp
             currInput = "";
             argA = "0";
             argB = "0";
+            opsCount = 0;
             argAUsed = false;
+            allowANeg = false;
             operatorSelected = false;
             tb_display.Text = argA;
         }
