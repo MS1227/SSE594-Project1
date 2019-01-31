@@ -8,38 +8,62 @@ namespace CalcFunctions.Library
 {
     public class CalcFunctions
     {
-        public static int Add(int a, int b)
+       
+        public static object Add(object a, object b)
         {
-            return a + b;
+            double dResult = 0;
+            int iResult = 0;
+            if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
+            {
+                dResult = Convert.ToDouble(a) + Convert.ToDouble(b);
+
+                return dResult;
+            }
+            else
+            {
+                iResult = (int)a + (int)b;
+
+                return iResult;
+            }
+        }
+        public static object Subtract(object a, object b)
+        {
+            double dResult = 0;
+            int iResult = 0;
+            if (a.GetType() == typeof(double) || b.GetType() == typeof(double))
+            {
+                dResult = Convert.ToDouble(a) - Convert.ToDouble(b);
+                return dResult;
+            }
+            else
+            {
+                iResult = (int)a - (int)b;
+                return iResult;
+            }
+        }
+        public static object Multiply(object a, object b)
+        {
+            double dResult = 0;
+            int iResult = 0;
+            if(a.GetType() == typeof(double) || b.GetType() == typeof(double))
+            {
+                dResult = Convert.ToDouble(a) * Convert.ToDouble(b);
+                return dResult;
+            }
+            else
+            {
+                iResult = (int)a * (int)b;
+                return iResult;
+            }
+        }
+
+        public static object Divide(object a, object b)
+        {
+            double dResult = 0;
             
-        }
-        public static double Add(double a, double b)
-        {
-            return a + b;
-        }
-        public static int Subtract(int a, int b)
-        {
-            return a - b;
-        }
-        public static double Subtract(double a, double b)
-        {
-            return a - b;
-        }
-        public static int Multiply(int a, int b)
-        {
-            return a * b;
-        }
-        public static double Multiply(double a, double b)
-        {
-            return a * b;
-        }
-        public static int Divide(int a, int b)
-        {   
-            return a / b;
-        }
-        public static double Divide(double a, double b)
-        {
-            return a / b;
+            dResult = Convert.ToDouble(a) / Convert.ToDouble(b);
+
+            return dResult;
         }
         
     }
