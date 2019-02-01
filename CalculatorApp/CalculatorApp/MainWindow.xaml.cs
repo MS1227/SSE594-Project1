@@ -20,10 +20,10 @@ namespace CalculatorApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string currInput = string.Empty;
+        private string currInput = string.Empty, currOperator = string.Empty;
         private string argA = string.Empty, argB = string.Empty;
-        bool argAUsed = false, allowANeg = false, operatorSelected = false;
-        private int opsCount = 0;
+        private bool argBUsed = false, argAUsed = false, allowANeg = false, operatorSelected = false;
+        
 
         public MainWindow()
         {
@@ -76,22 +76,24 @@ namespace CalculatorApp
 
         private void Btn_plus_Click(object sender, RoutedEventArgs e)
         {
-            if(opsCount > 0)
+            if (!argAUsed)
             {
-                currInput = argA + " + " + argB;
-                Btn_equals_Click(sender, e);
-            }
-            else if (operatorSelected)
-            {
-                currInput += argB;
-                Btn_equals_Click(sender, e);
-            }
-            else if(!argAUsed)
-            {
-                currInput = argA + " + ";
+                currOperator = " + ";
                 argAUsed = true;
-                operatorSelected = true;
+               
             }
+            else if (!argBUsed)
+            {
+                currOperator = " + ";
+                argBUsed = true;
+            }
+            else
+            {
+                Btn_equals_Click(sender, e);
+                currOperator = " + ";
+       
+            }
+            
             
                
         }
@@ -183,7 +185,24 @@ namespace CalculatorApp
 
         private void Btn_minus_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                currOperator = " - ";
+                argAUsed = true;
+               
+            }
+            else if (!argBUsed)
+            {
+                currOperator = " - ";
+                argBUsed = true;
+            }
+            else 
+            {
+                Btn_equals_Click(sender, e);
+                currOperator = " - ";
+               
+            }
+            
         }
 
         private void Btn_4_Click(object sender, RoutedEventArgs e)
@@ -272,7 +291,24 @@ namespace CalculatorApp
 
         private void Btn_multiply_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!argAUsed)
+            {
+                currOperator = " * ";
+                argAUsed = true;
+                
+            }
+            else if (!argBUsed)
+            {
+                currOperator = " * ";
+                argBUsed = true;
+            }
+            else
+            {
+                Btn_equals_Click(sender, e);
+                currOperator = " * ";
+                
+            }
+            
         }
 
         private void Btn_7_Click(object sender, RoutedEventArgs e)
@@ -362,7 +398,23 @@ namespace CalculatorApp
 
         private void Btn_divide_Click(object sender, RoutedEventArgs e)
         {
-
+           
+            if (!argAUsed)
+            {
+                currOperator = " / ";
+                argAUsed = true;
+                
+            }
+            else if(!argBUsed)
+            {
+                currOperator = " / ";
+                argBUsed = true;
+            }
+            else
+            {
+                Btn_equals_Click(sender, e);
+                currOperator = " / ";  
+            }
         }
 
         private void Btn_0_Click(object sender, RoutedEventArgs e)
@@ -407,20 +459,25 @@ namespace CalculatorApp
 
         private void Btn_equals_Click(object sender, RoutedEventArgs e)
         {
+            if((sender.ToString().Split(' ')[1] == "="))
+            {
+                argBUsed = false;
+            }
+            currInput = argA + currOperator + argB;
             object result = Parser.Library.Parser.parseString(currInput);
             argA = result.ToString();
             tb_display.Text = argA;
-            argB = "";
+            argB = "0";
             allowANeg = true;
-            opsCount++;
+           
+            
         }
 
         private void Btn_c_Click(object sender, RoutedEventArgs e)
         {
             currInput = "";
             argA = "0";
-            argB = "0";
-            opsCount = 0;
+            argB = "0";  
             argAUsed = false;
             allowANeg = false;
             operatorSelected = false;
