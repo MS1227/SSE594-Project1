@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="290" Width="300">
+        Title="Calculator" Height="290" Width="300">
     <Grid Background="SlateGray">
         <StackPanel>
             <WrapPanel Margin="5,5,5,5">
