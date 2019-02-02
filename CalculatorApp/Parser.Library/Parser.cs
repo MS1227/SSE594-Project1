@@ -16,9 +16,9 @@ namespace Parser.Library
 
             bool containsDouble = false, isFirstArg = true;
             bool iArgAUsed = false, iArgBUsed = false, dArgAUsed = false, dArgBUsed = false;
-            int iArgA = 0, iArgB = 0, iResult = 0;
-            double dArgA = 0, dArgB = 0, dResult = 0;
-
+            int iArgA = 0, iArgB = 0;
+            double dArgA = 0, dArgB = 0;
+            object iResult = 0, dResult = 0;
             foreach (string x in operands)
             {
                 //look for decimal in double values
@@ -64,11 +64,11 @@ namespace Parser.Library
                     if (currOperater == "/")
                     {
                         containsDouble = true;
-                        dResult = Convert.ToDouble(Operate(currOperater, iArgA, iArgB));
+                        dResult = Operate(currOperater, iArgA, iArgB);
                     }
                     else
                     {
-                        iResult = (int)Operate(currOperater, iArgA, iArgB);
+                        iResult = Operate(currOperater, iArgA, iArgB);
                     }
                         iArgAUsed = false;
                         iArgBUsed = false;
@@ -77,21 +77,21 @@ namespace Parser.Library
                 }
                 else if (iArgAUsed && dArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, iArgA, dArgB);
+                    dResult =  Operate(currOperater, iArgA, dArgB);
                     iArgAUsed = false;
                     dArgBUsed = false;
                     
                 }
                 else if(dArgAUsed && iArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, dArgA, iArgB);
+                    dResult =  Operate(currOperater, dArgA, iArgB);
                     dArgAUsed = false;
                     iArgBUsed = false;
                     
                 }
                 else if(dArgAUsed && dArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, dArgA, dArgB);
+                    dResult =  Operate(currOperater, dArgA, dArgB);
                     dArgAUsed = false;
                     dArgBUsed = false;
                 }
@@ -109,26 +109,25 @@ namespace Parser.Library
         }
         public static object Operate(string inputOperator, object a, object b)
         {
-            int iResult = 0;
-            double dResult = 0;
+            object iResult = 0;
+            object dResult = 0;
             if (a.GetType() == typeof(double) || b.GetType() == typeof(double)
                 || inputOperator == "/")
             {
                 switch (inputOperator)
                 {
                     case "+":
-                        dResult = (double) CalcFunctions.Library.CalcFunctions.Add(a, b);
+                        dResult =  CalcFunctions.Library.CalcFunctions.Add(a, b);
                         break;
                     case "-":
-                        dResult = (double) CalcFunctions.Library.CalcFunctions.Subtract(a, b);
+                        dResult =  CalcFunctions.Library.CalcFunctions.Subtract(a, b);
                         break;
                     case "*":
-                        dResult = (double) CalcFunctions.Library.CalcFunctions.Multiply(a, b);
+                        dResult =  CalcFunctions.Library.CalcFunctions.Multiply(a, b);
                         break;
                     case "/":
-                        double argA = Convert.ToDouble(a);
-                        double argB = Convert.ToDouble(b);
-                        dResult = (double) CalcFunctions.Library.CalcFunctions.Divide(argA, argB);
+                       
+                        dResult =  CalcFunctions.Library.CalcFunctions.Divide(a, b);
                         break;
                     default:
                         break;
@@ -141,13 +140,13 @@ namespace Parser.Library
                 switch (inputOperator)
                 {
                     case "+":
-                        iResult = (int)CalcFunctions.Library.CalcFunctions.Add(a, b);
+                        iResult = CalcFunctions.Library.CalcFunctions.Add(a, b);
                         break;
                     case "-":
-                        iResult = (int)CalcFunctions.Library.CalcFunctions.Subtract(a, b);
+                        iResult = CalcFunctions.Library.CalcFunctions.Subtract(a, b);
                         break;
                     case "*":
-                        iResult = (int)CalcFunctions.Library.CalcFunctions.Multiply(a, b);
+                        iResult = CalcFunctions.Library.CalcFunctions.Multiply(a, b);
                         break;
                     default:
                         break;
