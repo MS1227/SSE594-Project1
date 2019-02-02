@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -459,7 +461,8 @@ namespace CalculatorApp
 
         private void Btn_equals_Click(object sender, RoutedEventArgs e)
         {
-            if((sender.ToString().Split(' ')[1] == "="))
+
+            if ((sender.ToString().Split(' ')[1] == "="))
             {
                 argBUsed = false;
             }
@@ -467,10 +470,34 @@ namespace CalculatorApp
             object result = Parser.Library.Parser.parseString(currInput);
             argA = result.ToString();
             tb_display.Text = argA;
+                       
             argB = "0";
             allowANeg = true;
-           
             
+            if (argA == "OVERFLOW" || argA == "UNDERFLOW" || argA == "DIV BY 0")
+            {
+                btn_0.IsEnabled = false;
+                btn_1.IsEnabled = false;
+                btn_2.IsEnabled = false;
+                btn_3.IsEnabled = false;
+                btn_4.IsEnabled = false;
+                btn_5.IsEnabled = false;
+                btn_6.IsEnabled = false;
+                btn_7.IsEnabled = false;
+                btn_8.IsEnabled = false;
+                btn_9.IsEnabled = false;
+                btn_ce.IsEnabled = false;
+                btn_dec.IsEnabled = false;
+                btn_plus.IsEnabled = false;
+                btn_minus.IsEnabled = false;
+                btn_multiply.IsEnabled = false;
+                btn_divide.IsEnabled = false;
+                btn_plusMinus.IsEnabled = false;
+                btn_equals.IsEnabled = false;
+                tb_display.Background = Brushes.Red;
+            }
+
+
         }
 
         private void Btn_c_Click(object sender, RoutedEventArgs e)
@@ -482,6 +509,27 @@ namespace CalculatorApp
             allowANeg = false;
             operatorSelected = false;
             tb_display.Text = argA;
+
+            btn_0.IsEnabled = true;
+            btn_1.IsEnabled = true;
+            btn_2.IsEnabled = true;
+            btn_3.IsEnabled = true;
+            btn_4.IsEnabled = true;
+            btn_5.IsEnabled = true;
+            btn_6.IsEnabled = true;
+            btn_7.IsEnabled = true;
+            btn_8.IsEnabled = true;
+            btn_9.IsEnabled = true;
+            btn_ce.IsEnabled = true;
+            btn_dec.IsEnabled = true;
+            btn_plus.IsEnabled = true;
+            btn_minus.IsEnabled = true;
+            btn_multiply.IsEnabled = true;
+            btn_divide.IsEnabled = true;
+            btn_plusMinus.IsEnabled = true;
+            btn_equals.IsEnabled = true;
+            tb_display.Background = Brushes.AliceBlue;
         }
+        
     }
 }
