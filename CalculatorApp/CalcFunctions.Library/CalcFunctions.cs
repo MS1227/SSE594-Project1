@@ -101,9 +101,20 @@ namespace CalcFunctions.Library
         {
             double dResult = 0;
             
+               
             dResult = Convert.ToDouble(a) / Convert.ToDouble(b);
-
-            return dResult;
+                
+            if(Double.IsInfinity(dResult))
+            {
+                return "DIV BY 0";
+            }
+            else
+            {
+                return dResult;
+            }
+                
+            
+           
         }
         
     }

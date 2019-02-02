@@ -132,5 +132,13 @@ namespace CalcFunctions.Library.Test
             Assert.AreEqual(result.ToString(), "UNDERFLOW");
 
         }
+        [Test]
+        public void Check_For_Divide_by_0()
+        {
+            int a = 1, b = 0;
+
+            object result = CalcFunctions.Divide(a, b);
+            Assert.AreEqual(result.ToString(), "DIV BY 0");
+        }
     }
 }
