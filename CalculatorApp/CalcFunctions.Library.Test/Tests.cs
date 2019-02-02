@@ -113,5 +113,24 @@ namespace CalcFunctions.Library.Test
             double result = (double)CalcFunctions.Divide(a, b);
             Assert.AreEqual(result, a / b);
         }
+        [Test]
+        public void Check_For_Integer_Overflow_Add()
+        {
+            int a = Int32.MaxValue;
+            int b = 1;
+
+            object result = CalcFunctions.Add(a, b);
+            Assert.AreEqual(result.ToString(), "OVERFLOW");
+        }
+        [Test]
+        public void Check_For_Integer_Underflow_Sub()
+        {
+            int a = Int32.MinValue;
+            int b = 1;
+
+            object result = CalcFunctions.Subtract(a, b);
+            Assert.AreEqual(result.ToString(), "UNDERFLOW");
+
+        }
     }
 }
