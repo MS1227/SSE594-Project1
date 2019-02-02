@@ -64,7 +64,7 @@ namespace Parser.Library
                     if (currOperater == "/")
                     {
                         containsDouble = true;
-                        dResult = Convert.ToDouble(Operate(currOperater, iArgA, iArgB));
+                        dResult = Operate(currOperater, iArgA, iArgB);
                     }
                     else
                     {
