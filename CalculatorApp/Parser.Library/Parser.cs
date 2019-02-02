@@ -16,9 +16,9 @@ namespace Parser.Library
 
             bool containsDouble = false, isFirstArg = true;
             bool iArgAUsed = false, iArgBUsed = false, dArgAUsed = false, dArgBUsed = false;
-            int iArgA = 0, iArgB = 0, iResult = 0;
-            double dArgA = 0, dArgB = 0, dResult = 0;
-
+            int iArgA = 0, iArgB = 0;
+            double dArgA = 0, dArgB = 0;
+            object iResult = 0, dResult = 0;
             foreach (string x in operands)
             {
                 //look for decimal in double values
@@ -68,7 +68,7 @@ namespace Parser.Library
                     }
                     else
                     {
-                        iResult = (int)Operate(currOperater, iArgA, iArgB);
+                        iResult = Operate(currOperater, iArgA, iArgB);
                     }
                         iArgAUsed = false;
                         iArgBUsed = false;
@@ -77,21 +77,21 @@ namespace Parser.Library
                 }
                 else if (iArgAUsed && dArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, iArgA, dArgB);
+                    dResult =  Operate(currOperater, iArgA, dArgB);
                     iArgAUsed = false;
                     dArgBUsed = false;
                     
                 }
                 else if(dArgAUsed && iArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, dArgA, iArgB);
+                    dResult =  Operate(currOperater, dArgA, iArgB);
                     dArgAUsed = false;
                     iArgBUsed = false;
                     
                 }
                 else if(dArgAUsed && dArgBUsed)
                 {
-                    dResult = (double) Operate(currOperater, dArgA, dArgB);
+                    dResult =  Operate(currOperater, dArgA, dArgB);
                     dArgAUsed = false;
                     dArgBUsed = false;
                 }
